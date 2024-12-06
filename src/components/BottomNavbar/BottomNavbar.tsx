@@ -43,7 +43,7 @@ export default function BottomNavbar() {
       onChange={(event, newValue) => handleNavigation(newValue)}
       sx={{
         position: 'fixed',
-        bottom: 0,
+        bottom: 4,
         left: 0,
         right: 0,
         backgroundColor: 'white',
