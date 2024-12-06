@@ -23,9 +23,12 @@ export default function Home() {
             <Cell
               before={
                 <Image
-                  src={tonSvg.src}
-                  style={{ backgroundColor: '#007AFF' }}
-                />
+                src={tonSvg}
+                style={{ backgroundColor: '#007AFF' }}
+                alt="TON Logo" // Alt metni ekleyin
+              />
+              
+              
               }
               subtitle="Connect your TON wallet"
             >

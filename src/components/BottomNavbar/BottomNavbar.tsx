@@ -18,19 +18,19 @@ export default function BottomNavbar() {
     setValue(newValue);
     switch (newValue) {
       case 0:
-        router.push('/home');
+        router.push('/ton-connect');
         break;
       case 1:
-        router.push('/earn');
+        router.push('/init-data');
         break;
       case 2:
-        router.push('/frens');
+        router.push('/launch-params');
         break;
       case 3:
-        router.push('/wallet');
+        router.push('/theme-params');
         break;
       case 4:
-        router.push('/swap');
+        router.push('/ton-connect');
         break;
       default:
         break;
