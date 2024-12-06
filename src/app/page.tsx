@@ -24,7 +24,6 @@ export default function Home() {
               before={
                 <Image
                 src={tonSvg}
-                style={{ backgroundColor: '#007AFF' }}
                 alt="TON Logo" // Alt metni ekleyin
               />
               
