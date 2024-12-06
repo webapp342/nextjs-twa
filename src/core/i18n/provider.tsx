@@ -1,27 +1,31 @@
-'use client'; // Add this line to mark the component as a Client Component
+'use client';
 
 import { NextIntlClientProvider } from "next-intl";
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { getMessages } from "next-intl/server";
 
-// Define MessagesType to match the structure of the returned messages
+// Mesaj tipi
 type MessagesType = Record<string, string>;
 
 const I18nProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
   const [messages, setMessages] = useState<MessagesType | null>(null);
+  const [locale, setLocale] = useState<string>("en"); // Varsayılan olarak İngilizce dilini kullanıyoruz
+
+  const loadMessages = async (locale: string) => {
+    try {
+      const fetchedMessages = await getMessages({ locale }); // doğru parametreyi geçiyoruz
+      setMessages(fetchedMessages as MessagesType);
+    } catch (error) {
+      console.error("Mesajlar yüklenirken hata oluştu:", error);
+    }
+  };
 
   useEffect(() => {
-    // Fetch the messages asynchronously
-    const fetchMessages = async () => {
-      const fetchedMessages = await getMessages();
-      setMessages(fetchedMessages as MessagesType); // Explicitly cast the fetched messages to the expected type
-    };
-
-    fetchMessages();
-  }, []);
+    loadMessages(locale); // Başlangıçta varsayılan dili yükle
+  }, [locale]);
 
   if (!messages) {
-    return <div>Loading...</div>; // Loading state while messages are being fetched
+    return <div>Loading...</div>; // Mesajlar yüklenene kadar "Loading..."
   }
 
   return (
