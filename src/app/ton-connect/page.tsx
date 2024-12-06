@@ -13,8 +13,7 @@ import {
   Text,
   Title,
 } from '@telegram-apps/telegram-ui';
-import  BottomNavbar  from '@/components/BottomNavbar/BottomNavbar';
-
+import BottomNavbar from '@/components/BottomNavbar/BottomNavbar';
 
 import { DisplayData } from '@/components/DisplayData/DisplayData';
 
@@ -34,9 +33,8 @@ export default function TONConnectPage() {
                 To display the data related to the TON Connect, it is required
                 to connect your wallet
               </Text>
-              <TonConnectButton className="ton-connect-page__button"/>
-              <BottomNavbar />
-
+              <TonConnectButton className="ton-connect-page__button" />
+              <BottomNavbar theme={{ bg: '#ffffff', text: '#000000' }} />
             </>
           }
         />
@@ -63,8 +61,12 @@ export default function TONConnectPage() {
             <Section>
               <Cell
                 before={
-                  <Avatar src={wallet.imageUrl} alt="Provider logo" width={60}
-                          height={60}/>
+                  <Avatar
+                    src={wallet.imageUrl}
+                    alt="Provider logo"
+                    width={60}
+                    height={60}
+                  />
                 }
                 after={<Navigation>About wallet</Navigation>}
                 subtitle={wallet.appName}
@@ -76,7 +78,7 @@ export default function TONConnectPage() {
                 <Title level="3">{wallet.name}</Title>
               </Cell>
             </Section>
-            <TonConnectButton className="ton-connect-page__button-connected"/>
+            <TonConnectButton className="ton-connect-page__button-connected" />
           </>
         )}
         <DisplayData
@@ -97,13 +99,16 @@ export default function TONConnectPage() {
             {
               title: 'Features',
               value: features
-                .map(f => typeof f === 'object' ? f.name : undefined)
-                .filter(v => v)
+                .map((f) => (typeof f === 'object' ? f.name : undefined))
+                .filter((v) => v)
                 .join(', '),
             },
           ]}
         />
       </List>
+
+      {/* Pass theme to BottomNavbar */}
+      <BottomNavbar theme={{ bg: '#ffffff', text: '#000000' }} />
     </Page>
   );
-};
+}

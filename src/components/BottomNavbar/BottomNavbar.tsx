@@ -10,7 +10,15 @@ import WalletIcon from '@mui/icons-material/AccountBalanceWallet';
 import SwapHorizIcon from '@mui/icons-material/SwapHoriz';
 import { useRouter } from 'next/navigation';
 
-export default function BottomNavbar() {
+// Define the type for the theme prop
+interface BottomNavbarProps {
+  theme: {
+    bg: string;  // Background color
+    text: string; // Text color
+  };
+}
+
+export default function BottomNavbar({ theme }: BottomNavbarProps) {
   const [value, setValue] = useState(0);
   const router = useRouter();
 
@@ -43,20 +51,41 @@ export default function BottomNavbar() {
       onChange={(event, newValue) => handleNavigation(newValue)}
       sx={{
         position: 'fixed',
-        bottom: 16, // Adding space from the bottom
-        left: '16px', // Adding space from the left
-        right: '16px', // Adding space from the right
-        backgroundColor: 'white',
+        bottom: 16,
+        left: '16px',
+        right: '16px',
+        backgroundColor: theme.bg, // Apply theme background color
+        color: theme.text, // Apply theme text color
         zIndex: 1000,
         boxShadow: '0px -2px 5px rgba(0,0,0,0.1)',
-        borderRadius: '16px', // Optional: Add rounded corners
+        borderRadius: '16px',
       }}
     >
-      <BottomNavigationAction label="Home" icon={<HomeIcon />} />
-      <BottomNavigationAction label="Earn" icon={<PaidIcon />} />
-      <BottomNavigationAction label="Frens" icon={<GroupIcon />} />
-      <BottomNavigationAction label="Wallet" icon={<WalletIcon />} />
-      <BottomNavigationAction label="Swap" icon={<SwapHorizIcon />} />
+      <BottomNavigationAction
+        label="Home"
+        icon={<HomeIcon />}
+        sx={{ minWidth: '40px' }}  // Ensure icons and labels fit properly
+      />
+      <BottomNavigationAction
+        label="Earn"
+        icon={<PaidIcon />}
+        sx={{ minWidth: '40px' }}
+      />
+      <BottomNavigationAction
+        label="Frens"
+        icon={<GroupIcon />}
+        sx={{ minWidth: '40px' }}
+      />
+      <BottomNavigationAction
+        label="Wallet"
+        icon={<WalletIcon />}
+        sx={{ minWidth: '40px' }}
+      />
+      <BottomNavigationAction
+        label="Swap"
+        icon={<SwapHorizIcon />}
+        sx={{ minWidth: '40px' }}
+      />
     </BottomNavigation>
   );
 }
