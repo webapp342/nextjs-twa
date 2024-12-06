@@ -1,21 +1,18 @@
 //use server is required
 "use server";
 
-import { cookies } from "next/headers";
+import { cookies } from 'next/headers'; // Next.js cookies API
 
-import { defaultLocale } from "./config";
-import type { Locale } from "./types";
+const COOKIE_NAME = 'NEXT_LOCALE';
 
-// In this example the locale is read from a cookie. You could alternatively
-// also read it from a database, backend service, or any other source.
-const COOKIE_NAME = "NEXT_LOCALE";
-
-const getLocale = async () => {
-  return cookies().get(COOKIE_NAME)?.value || defaultLocale;
+// Kullanıcının seçtiği dil değerini cookie'ye kaydetme
+const setLocale = (locale: string) => {
+  cookies().set(COOKIE_NAME, locale);
 };
 
-const setLocale = async (locale?: string) => {
-  cookies().set(COOKIE_NAME, locale as Locale || defaultLocale);
+// Kullanıcının dilini almak için cookie'den okuma
+const getLocale = () => {
+  return cookies().get(COOKIE_NAME)?.value || 'en'; // Varsayılan dil 'en' olacak
 };
 
-export { getLocale, setLocale };
+export { setLocale, getLocale };
