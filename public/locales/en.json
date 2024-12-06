@@ -1,6 +1,21 @@
 {
   "i18n": {
-    "header": "Application supports i18n",
-    "footer": "You can select a different language from the dropdown menu."
+    "header": "Hello, you can choose your language here",
+    "footer": "Change the language here",
+    "featuresHeader": "Features",
+    "featuresFooter": "You can use these pages to learn more about features, provided by Telegram Mini Apps and other useful projects",
+    "connectWallet": "Connect your TON wallet",
+    "tonConnect": "TON Connect",
+    "launchDataHeader": "Application Launch Data",
+    "launchDataFooter": "These pages help developers learn more about current launch information",
+    "initDataSubtitle": "User data, chat information, technical data",
+    "initData": "Init Data",
+    "launchParamsSubtitle": "Platform identifier, Mini Apps version, etc.",
+    "launchParams": "Launch Parameters",
+    "themeParamsSubtitle": "Telegram application palette information",
+    "themeParams": "Theme Parameters",
+    "localeSwitcherHeader": "Locale Switcher",
+    "localeSwitcherFooter": "You can select a different language from the dropdown menu.",
+    "tonLogoAlt": "TON Logo"
   }
 }

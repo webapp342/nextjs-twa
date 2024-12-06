@@ -10,53 +10,48 @@ import { Page } from '@/components/Page';
 import tonSvg from './_assets/ton.svg';
 
 export default function Home() {
-  const t = useTranslations('i18n');
+  const t = useTranslations('i18n');  // Get translations for 'i18n'
 
   return (
     <Page back={false}>
       <List>
         <Section
-          header="Features"
-          footer="You can use these pages to learn more about features, provided by Telegram Mini Apps and other useful projects"
+          header={t('featuresHeader')}  // Translate header
+          footer={t('featuresFooter')}  // Translate footer
         >
           <Link href="/ton-connect">
             <Cell
-              before={
-                <Image
-                src={tonSvg}
-                alt="TON Logo" // Alt metni ekleyin
-              />
-              
-              
-              }
-              subtitle="Connect your TON wallet"
+              before={<Image src={tonSvg} alt={t('tonLogoAlt')} />}  // Translated alt text
+              subtitle={t('connectWallet')}  // Translate subtitle
             >
-              TON Connect
+              {t('tonConnect')} 
             </Cell>
           </Link>
         </Section>
+
         <Section
-          header="Application Launch Data"
-          footer="These pages help developer to learn more about current launch information"
+          header={t('launchDataHeader')}  // Translate header
+          footer={t('launchDataFooter')}  // Translate footer
         >
           <Link href="/init-data">
-            <Cell subtitle="User data, chat information, technical data">
-              Init Data
+            <Cell subtitle={t('initDataSubtitle')}>
+              {t('initData')}
             </Cell>
           </Link>
           <Link href="/launch-params">
-            <Cell subtitle="Platform identifier, Mini Apps version, etc.">
-              Launch Parameters
+            <Cell subtitle={t('launchParamsSubtitle')}>
+              {t('launchParams')}
             </Cell>
           </Link>
           <Link href="/theme-params">
-            <Cell subtitle="Telegram application palette information">
-              Theme Parameters
+            <Cell subtitle={t('themeParamsSubtitle')}>
+              {t('themeParams')}
             </Cell>
           </Link>
         </Section>
-        <Section header={t('header')} footer={t('footer')}>
-          <LocaleSwitcher/>
+
+        <Section header={t('localeSwitcherHeader')} footer={t('localeSwitcherFooter')}>
+          <LocaleSwitcher />
         </Section>
       </List>
     </Page>

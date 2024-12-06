@@ -1,6 +1,21 @@
 {
   "i18n": {
-    "header": "Merhaba, dilinizi buradan secebilirsiniz",
-    "footer": "buradan dili degistirin "
+    "header": "Merhaba, dilinizi buradan seçebilirsiniz",
+    "footer": "Buradan dili değiştirebilirsiniz",
+    "featuresHeader": "Özellikler",
+    "featuresFooter": "Telegram Mini Apps ve diğer faydalı projeler hakkında daha fazla bilgi edinmek için bu sayfaları kullanabilirsiniz",
+    "connectWallet": "TON cüzdanınızı bağlayın",
+    "tonConnect": "TON Connect",
+    "launchDataHeader": "Uygulama Başlatma Verileri",
+    "launchDataFooter": "Bu sayfalar, geliştiricilerin mevcut başlatma bilgilerini öğrenmelerine yardımcı olur",
+    "initDataSubtitle": "Kullanıcı verileri, sohbet bilgileri, teknik veriler",
+    "initData": "İnisiyalizasyon Verisi",
+    "launchParamsSubtitle": "Platform tanımlayıcısı, Mini Apps sürümü vb.",
+    "launchParams": "Başlatma Parametreleri",
+    "themeParamsSubtitle": "Telegram uygulama paleti bilgisi",
+    "themeParams": "Tema Parametreleri",
+    "localeSwitcherHeader": "Yerel Ayar Değiştirici",
+    "localeSwitcherFooter": "Aşağıdaki menüden başka bir dil seçebilirsiniz.",
+    "tonLogoAlt": "TON Logo"
   }
 }
