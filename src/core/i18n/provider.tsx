@@ -24,12 +24,9 @@ const I18nProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
     loadMessages(locale); // Başlangıçta varsayılan dili yükle
   }, [locale]);
 
-  if (!messages) {
-    return <div>Loading...</div>; // Mesajlar yüklenene kadar "Loading..."
-  }
-
+  
   return (
-    <NextIntlClientProvider messages={messages}>
+    <NextIntlClientProvider >
       {children}
     </NextIntlClientProvider>
   );
