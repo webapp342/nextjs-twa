@@ -7,6 +7,7 @@ import { Link } from '@/components/Link/Link';
 import { LocaleSwitcher } from '@/components/LocaleSwitcher/LocaleSwitcher';
 import { Page } from '@/components/Page';
 
+import tonSvg from './_assets/ton.svg';
 
 export default function Home() {
   const t = useTranslations('i18n');
@@ -20,7 +21,12 @@ export default function Home() {
         >
           <Link href="/ton-connect">
             <Cell
-             
+              before={
+                <Image
+                  src={tonSvg.src}
+                  style={{ backgroundColor: '#007AFF' }}
+                />
+              }
               subtitle="Connect your TON wallet"
             >
               TON Connect
