@@ -43,12 +43,13 @@ export default function BottomNavbar() {
       onChange={(event, newValue) => handleNavigation(newValue)}
       sx={{
         position: 'fixed',
-        bottom: 4,
-        left: 0,
-        right: 0,
+        bottom: 16, // Adding space from the bottom
+        left: '16px', // Adding space from the left
+        right: '16px', // Adding space from the right
         backgroundColor: 'white',
         zIndex: 1000,
         boxShadow: '0px -2px 5px rgba(0,0,0,0.1)',
+        borderRadius: '16px', // Optional: Add rounded corners
       }}
     >
       <BottomNavigationAction label="Home" icon={<HomeIcon />} />
