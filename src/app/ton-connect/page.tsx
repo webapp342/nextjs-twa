@@ -13,6 +13,8 @@ import {
   Text,
   Title,
 } from '@telegram-apps/telegram-ui';
+import  BottomNavbar  from '@/components/BottomNavbar/BottomNavbar';
+
 
 import { DisplayData } from '@/components/DisplayData/DisplayData';
 
@@ -33,6 +35,8 @@ export default function TONConnectPage() {
                 to connect your wallet
               </Text>
               <TonConnectButton className="ton-connect-page__button"/>
+              <BottomNavbar />
+
             </>
           }
         />
