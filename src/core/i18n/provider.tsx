@@ -1,3 +1,5 @@
+'use client'; // Add this line to mark the component as a Client Component
+
 import { NextIntlClientProvider } from "next-intl";
 import { useEffect, useState } from "react";
 import { getMessages } from "next-intl/server";
