@@ -1,7 +1,7 @@
 import { isRGB } from '@telegram-apps/sdk-react';
 import { Cell, Checkbox, Section } from '@telegram-apps/telegram-ui';
 import type { FC, ReactNode } from 'react';
-
+import  BottomNavbar  from '@/components/BottomNavbar/BottomNavbar';
 import { RGB } from '@/components/RGB/RGB';
 import { Link } from '@/components/Link/Link';
 
@@ -52,7 +52,9 @@ export const DisplayData: FC<DisplayDataProps> = ({ header, rows }) => (
           <span className='display-data__line-value'>
             {valueNode}
           </span>
+          <BottomNavbar />
         </Cell>
+        
       );
     })}
   </Section>
