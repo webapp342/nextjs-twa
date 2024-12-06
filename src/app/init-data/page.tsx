@@ -1,61 +1,71 @@
 "use client";
-import { useState } from 'react';
-import { XMarkIcon } from '@heroicons/react/24/outline'; // Kapatma ikonu için
-export default function MobileSwipableDrawer() {
+
+import React, { useState } from "react";
+import SwipeableDrawer from "@mui/material/SwipeableDrawer";
+import IconButton from "@mui/material/IconButton";
+import CloseIcon from "@mui/icons-material/Close";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+
+export default function FullScreenDrawer() {
   const [isOpen, setIsOpen] = useState(false);
+
+  const toggleDrawer = (open: boolean) => () => {
+    setIsOpen(open);
+  };
 
   return (
     <>
-      {/* Drawer'ı Açan Buton */}
-      <button
-        className="fixed bottom-4 left-4 bg-blue-500 text-white p-3 rounded-full"
-        onClick={() => setIsOpen(true)}
-      >
+      {/* Drawer'ı açmak için bir buton */}
+      <Button variant="contained" onClick={toggleDrawer(true)}>
         Open Drawer
-      </button>
+      </Button>
 
-      {/* Arka Plan (Overlay) */}
-      <div
-        className={`fixed inset-0 bg-black bg-opacity-50 transition-opacity duration-300 ${
-          isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
-        }`}
-        onClick={() => setIsOpen(false)} // Background'a tıklayarak kapatma
-      ></div>
-
-      {/* Drawer */}
-      <div
-        className={`fixed bottom-0 left-0 w-full h-[90%] bg-white rounded-t-3xl shadow-lg transform ${
-          isOpen ? 'translate-y-0' : 'translate-y-full'
-        } transition-transform duration-300`}
+      {/* SwipeableDrawer */}
+      <SwipeableDrawer
+        anchor="bottom"
+        open={isOpen}
+        onClose={toggleDrawer(false)}
+        onOpen={toggleDrawer(true)}
+        PaperProps={{
+          sx: {
+            height: "100%", // Tam ekran
+            display: "flex",
+            flexDirection: "column",
+          },
+        }}
       >
-        <div className="relative h-full p-6">
-          {/* Drawer İçeriği */}
-          <div className="flex justify-between items-center">
-            <h2 className="text-xl font-bold">Drawer Content</h2>
-            {/* Sağ Üstte Kapatma İkonu */}
-            <button
-              className="p-2 bg-gray-100 rounded-full shadow hover:bg-gray-200"
-              onClick={() => setIsOpen(false)}
-            >
-              <XMarkIcon className="h-6 w-6 text-gray-600" />
-            </button>
-          </div>
+        {/* Sağ üstte kapatma ikonu */}
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            padding: "16px",
+            borderBottom: "1px solid #ccc",
+          }}
+        >
+          <Typography variant="h6">Drawer Title</Typography>
+          <IconButton onClick={toggleDrawer(false)}>
+            <CloseIcon />
+          </IconButton>
+        </Box>
 
-          <p className="mt-4 text-gray-700">
-            This is the content of the full-page swipable drawer optimized for mobile devices.
-          </p>
-
-          {/* Ek İçerik */}
-          <div className="mt-6 space-y-4">
-            <button className="w-full p-3 bg-blue-500 text-white rounded-lg">
-              Action 1
-            </button>
-            <button className="w-full p-3 bg-gray-200 text-gray-800 rounded-lg">
-              Action 2
-            </button>
-          </div>
-        </div>
-      </div>
+        {/* Drawer içeriği */}
+        <Box
+          sx={{
+            flex: 1,
+            padding: "16px",
+            overflowY: "auto",
+          }}
+        >
+          <Typography variant="body1">
+            This is the content of the drawer. You can swipe down or press the
+            close button to dismiss it.
+          </Typography>
+        </Box>
+      </SwipeableDrawer>
     </>
   );
 }
