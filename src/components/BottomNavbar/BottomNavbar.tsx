@@ -15,6 +15,7 @@ interface BottomNavbarProps {
   theme: {
     bg: string;  // Background color
     text: string; // Text color
+    active: string; // Active item color
   };
 }
 
@@ -64,27 +65,42 @@ export default function BottomNavbar({ theme }: BottomNavbarProps) {
       <BottomNavigationAction
         label="Home"
         icon={<HomeIcon />}
-        sx={{ minWidth: '40px' }}  // Ensure icons and labels fit properly
+        sx={{
+          minWidth: '40px',  // Ensure icons and labels fit properly
+          color: value === 0 ? theme.active : theme.text,  // Highlight selected label and icon
+        }}
       />
       <BottomNavigationAction
         label="Earn"
         icon={<PaidIcon />}
-        sx={{ minWidth: '40px' }}
+        sx={{
+          minWidth: '40px',
+          color: value === 1 ? theme.active : theme.text,
+        }}
       />
       <BottomNavigationAction
         label="Frens"
         icon={<GroupIcon />}
-        sx={{ minWidth: '40px' }}
+        sx={{
+          minWidth: '40px',
+          color: value === 2 ? theme.active : theme.text,
+        }}
       />
       <BottomNavigationAction
         label="Wallet"
         icon={<WalletIcon />}
-        sx={{ minWidth: '40px' }}
+        sx={{
+          minWidth: '40px',
+          color: value === 3 ? theme.active : theme.text,
+        }}
       />
       <BottomNavigationAction
         label="Swap"
         icon={<SwapHorizIcon />}
-        sx={{ minWidth: '40px' }}
+        sx={{
+          minWidth: '40px',
+          color: value === 4 ? theme.active : theme.text,
+        }}
       />
     </BottomNavigation>
   );

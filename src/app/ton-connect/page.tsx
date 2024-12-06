@@ -34,7 +34,7 @@ export default function TONConnectPage() {
                 to connect your wallet
               </Text>
               <TonConnectButton className="ton-connect-page__button" />
-              <BottomNavbar theme={{ bg: '#ffffff', text: '#000000' }} />
+              <BottomNavbar theme={{ bg: '#ffffff', text: '#000000', active : '#000000' }} />
             </>
           }
         />
@@ -108,7 +108,7 @@ export default function TONConnectPage() {
       </List>
 
       {/* Pass theme to BottomNavbar */}
-      <BottomNavbar theme={{ bg: '#ffffff', text: '#000000' }} />
+      <BottomNavbar theme={{ bg: '#ffffff', text: '#000000', active: '#000000' }} />
     </Page>
   );
 }
