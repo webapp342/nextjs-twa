@@ -1,3 +1,4 @@
+"use client";
 import { useState } from 'react';
 import { XMarkIcon } from '@heroicons/react/24/outline'; // Kapatma ikonu için
 export default function MobileSwipableDrawer() {
